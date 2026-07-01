@@ -166,17 +166,17 @@ singlecellagent/
 Planned command-line interface:
 
 ```bash
-singlecellagent validate --adata data/example/pbmc.h5ad
+single-cell-agent validate --adata data/example/pbmc.h5ad
 ```
 
 ```bash
-singlecellagent plan \
+single-cell-agent plan \
   --adata data/example/pbmc.h5ad \
   --question "Which cell types differ between control and disease samples?"
 ```
 
 ```bash
-singlecellagent run \
+single-cell-agent run \
   --adata data/example/pbmc.h5ad \
   --question "Find disease-associated transcriptional changes by cell type" \
   --out results/

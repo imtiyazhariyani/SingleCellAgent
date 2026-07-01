@@ -10,6 +10,17 @@ from single_cell_agent.tools.qc import summarize_qc
 from single_cell_agent.tools.markers import run_marker_analysis
 from single_cell_agent.validation.checks import validate_adata
 
+def cmd_agent(args):
+    final_answer = run_single_cell_agent(
+        adata_path=args.adata,
+        question=args.question,
+        output_dir=args.out,
+        model=args.model,
+        max_turns=args.max_turns,
+    )
+
+    print("\nFinal agent response:\n")
+    print(final_answer)
 
 def cmd_validate(args):
     adata = load_adata(args.adata)
@@ -124,6 +135,23 @@ def main():
     run_parser.add_argument("--run-markers", action="store_true", help="Run marker gene analysis")
     run_parser.add_argument("--n-marker-genes", type=int, default=20, help="Number of markers per group")
     run_parser.set_defaults(func=cmd_run)
+
+    agent_parser = subparsers.add_parser("agent", help="Run the LLM-powered SingleCellAgent")
+    agent_parser.add_argument("--adata", required=True, help="Path to .h5ad file")
+    agent_parser.add_argument("--question", required=True, help="Biological question")
+    agent_parser.add_argument("--out", default="results", help="Output directory")
+    agent_parser.add_argument(
+        "--model",
+        default=None,
+        help="Anthropic model name. Defaults to ANTHROPIC_MODEL env var or claude-sonnet-4-5.",
+    )
+    agent_parser.add_argument(
+        "--max-turns",
+        type=int,
+        default=8,
+        help="Maximum number of agent/tool-use turns.",
+    )
+    agent_parser.set_defaults(func=cmd_agent)
 
     args = parser.parse_args()
     args.func(args)

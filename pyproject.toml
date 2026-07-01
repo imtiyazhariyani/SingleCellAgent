@@ -1,0 +1,26 @@
+[project]
+name = "single-cell-agent"
+version = "0.1.0"
+description = "AI-guided single-cell analysis agent for reproducible biological discovery"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Imtiyaz Hariyani" }
+]
+
+dependencies = [
+  "scanpy>=1.10.0",
+  "anndata>=0.10.0",
+  "pandas>=2.0.0",
+  "numpy>=1.26.0",
+  "scipy>=1.11.0",
+  "matplotlib>=3.8.0",
+  "scikit-learn>=1.4.0"
+]
+
+[project.scripts]
+single-cell-agent = "single_cell_agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["single_cell_agent*"]

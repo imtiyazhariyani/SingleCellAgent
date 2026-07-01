@@ -1,0 +1,11 @@
+Which cell types show disease-associated transcriptional changes?
+
+Are there cell-type-specific differences between control and treatment samples?
+
+Which marker genes define each annotated cell type?
+
+Are condition and batch confounded in this dataset?
+
+Does this dataset have enough biological replicates for pseudobulk differential expression?
+
+Which genes vary along the developmental trajectory?

@@ -17,6 +17,49 @@ The agent validated the AnnData object, inspected metadata, ran deterministic Sc
 
 [View example PBMC marker analysis report](examples/reports/pbmc_marker_analysis_report.md)
 
+## Setup
+
+Clone the repository and install the package locally:
+
+```bash
+git clone https://github.com/imtiyazhariyani/SingleCellAgent.git
+cd SingleCellAgent
+pip install -e .
+```
+
+Set your Anthropic API key:
+
+```bash
+export ANTHROPIC_API_KEY="your_api_key_here"
+```
+
+Download or provide an `.h5ad` file, then run the agent:
+
+```bash
+single-cell-agent agent \
+  --adata data/10x_pbmc68k_reduced.h5ad \
+  --question "Which marker genes distinguish the annotated PBMC cell types in this dataset, and do the marker patterns support the existing cell-type labels?" \
+  --out results/
+```
+
+The agent will validate the `AnnData` object, inspect metadata, run deterministic Scanpy-based analysis tools, and write outputs to the `results/` directory.
+
+For non-LLM testing, you can also run:
+
+```bash
+single-cell-agent validate --adata data/10x_pbmc68k_reduced.h5ad
+```
+
+```bash
+single-cell-agent metadata --adata data/10x_pbmc68k_reduced.h5ad
+```
+
+```bash
+single-cell-agent plan \
+  --adata data/10x_pbmc68k_reduced.h5ad \
+  --question "Which marker genes distinguish the annotated PBMC cell types?"
+```
+
 ## Project Goals
 
 SingleCellAgent aims to:

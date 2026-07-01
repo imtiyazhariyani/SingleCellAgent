@@ -7,6 +7,16 @@ This project is motivated by a common challenge in single-cell analysis: the har
 
 SingleCellAgent is designed as an AI-assisted analysis layer around real bioinformatics tools, with an emphasis on reliability, reproducibility, and transparent reasoning.
 
+## Example Agent Run
+
+SingleCellAgent was tested on the `10x_pbmc68k_reduced.h5ad` demo dataset with the question:
+
+> Which marker genes distinguish the annotated PBMC cell types in this dataset, and do the marker patterns support the existing cell-type labels?
+
+The agent validated the AnnData object, inspected metadata, ran deterministic Scanpy marker analysis, and generated an evidence-grounded report.
+
+[View example PBMC marker analysis report](examples/reports/pbmc_marker_analysis_report.md)
+
 ## Project Goals
 
 SingleCellAgent aims to:

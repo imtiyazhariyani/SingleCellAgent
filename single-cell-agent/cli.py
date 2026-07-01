@@ -1,6 +1,7 @@
 import argparse
 from pathlib import Path
 
+from single_cell_agent.agent import run_single_cell_agent
 from single_cell_agent.io import load_adata
 from single_cell_agent.metadata import summarize_metadata
 from single_cell_agent.planning import create_analysis_plan

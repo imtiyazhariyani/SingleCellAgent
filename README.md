@@ -1,5 +1,5 @@
 # SingleCellAgent
-**Prototype AI-guided single-cell analysis agent that translates biological questions into reproducible Scanpy workflows, executes deterministic analysis modules, and validates outputs with automated checks**
+**Prototype AI-guided single-cell analysis agent that translates natural-language biological questions into reproducible Scanpy workflows, executes deterministic analysis modules, and validates outputs with automated checks**
 
 SingleCellAgent is a prototype agentic system for single-cell genomics workflows. The goal is to help researchers translate biological questions into reproducible computational analyses, execute deterministic Scanpy-based workflows, validate outputs with automated checks, and generate evidence-grounded biological summaries.
 
